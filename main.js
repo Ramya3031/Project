@@ -1,11 +1,11 @@
-class notemaking 
+class main
 {
-    constructor(fname,lname,uname,pwd,note)
+    constructor(firstname,lastname,username,password,note)
     {
-    this.FN=fname;
-    this.LN=lname;
-    this.UN=uname;
-    this.Pwd=pwd;
+    this.FN=firstname;
+    this.LN=lastname;
+    this.UN=username;
+    this.Pwd=password;
     this.Note=note;
 
     }
@@ -35,18 +35,18 @@ class notemaking
     {
         return this.Loginpwd;
     } 
-    setFN(fname){
-        this.FN=fname;
+    setFN(firstname){
+        this.FN=firstname;
     }
-    setLN(lname){
-        this.LN=lname;
+    setLN(lastname){
+        this.LN=lastname;
     }      
-    setUN(uname){
-        this.UN=uname;
+    setUN(username){
+        this.UN=username;
     }
-    setPwd(pwd)
+    setPwd(password)
     {
-        this.Pwd=pwd;
+        this.Pwd=password;
     }
     setNote(note)
     {
@@ -56,44 +56,43 @@ class notemaking
     {
         this.User=user;
     }
-    setLoginpwd(password)
+    setLoginpwd(pwd)
     {
-        this.Loginpwd=password;
+        this.Loginpwd=pwd;
     }
 }
-const registration=document.getElementById("formreg");
-if(registration) registration.addEventListener('submit',register)
-function register(e){
-    e.preventDefault();
-    let firstname=document.getElementById('fname').value;
-    let lastname=document.getElementById('lname').value;
-    let username=document.getElementById('uname').value;
-    let passwrd=document.getElementById('password').value;
-
-    let regi= new notemaking(firstname,lastname,username,passwrd,);
-    console.log(regi.FN)
-    console.log(regi.LN)
-    console.log(regi.UN)
-    console.log(regi.Pwd)
-    registration.reset();
-}
-const loginform=document.getElementById("login");
-if(loginform) loginform.addEventListener('submit', loginuser)
+const login=document.getElementById("login");
+if(login) login.addEventListener('submit', loginuser)
 function loginuser(l){
     l.preventDefault();
     let user=document.getElementById('uname').value;
     let password=document.getElementById('password').value;
     console.log(`${user}`);
     console.log(`${password}`);
-    loginform.reset();
+    login.reset();
 }
-
-const noteform=document.getElementById("note");
-if(noteform) noteform.addEventListener('submit',notem)
+const Noting=document.getElementById("note");
+if(Noting) Noting.addEventListener('submit',notem)
 function notem(f)
 {
     f.preventDefault();
-    let notetext=document.getElementById('noteid').value;
-    console.log(`${notetext}`);
-    noteform.reset();
+    let text=document.getElementById('notemaking').value;
+    console.log(`${text}`);
+    Noting.reset();
+}
+const regist=document.getElementById("Register");
+if(regist) regist.addEventListener('submit',registr)
+function registr(e){
+    e.preventDefault();
+    let f=document.getElementById('fname').value;
+    let l=document.getElementById('lname').value;
+    let u=document.getElementById('uname').value;
+    let pass=document.getElementById('password').value;
+
+    let reg= new main(f,l,u,pass);
+    console.log(reg.FN)
+    console.log(reg.LN)
+    console.log(reg.UN)
+    console.log(reg.Pwd)
+    regist.reset();
 }
